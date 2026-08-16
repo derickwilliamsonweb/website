@@ -1,0 +1,566 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <title>Lawn Care & Handyman Services | Help The Ark</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Customer sign-up form for lawn care, grounds maintenance, junk removal, pressure washing and handyman services.">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <style>
+        /* Help The Ark / existing site theme */
+        #ark-services-page {
+            padding: 5em 0 4em;
+            background: #020B13;
+        }
+
+        #ark-services-page .section-title {
+            text-align: center;
+            margin-bottom: 2.5em;
+        }
+
+        #ark-services-page .section-title h2 {
+            color: #fff;
+            font-family: "Signika", sans-serif;
+            font-size: 2.25em;
+            font-weight: 700;
+            margin-bottom: .55em;
+            text-transform: uppercase;
+        }
+
+        #ark-services-page .section-title h2:after {
+            background: #637B88;
+        }
+
+        #ark-services-page .section-title p {
+            max-width: 850px;
+            margin: 0 auto;
+            color: #c0c2c4;
+            font-size: 1em;
+            line-height: 1.65;
+        }
+
+        .ark-form-card {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2.5em;
+            background: rgba(255,255,255,.045);
+            border: 1px solid rgba(255,255,255,.13);
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.25);
+        }
+
+        .ark-form-section {
+            padding: 2em 0;
+            border-top: 1px solid rgba(255,255,255,.12);
+        }
+
+        .ark-form-section:first-child {
+            padding-top: 0;
+            border-top: 0;
+        }
+
+        .ark-form-section h3 {
+            color: #fff;
+            font-family: "Signika", sans-serif;
+            font-size: 1.45em;
+            font-weight: 700;
+            margin-bottom: 1em;
+        }
+
+        .ark-form-section h4 {
+            color: #fff;
+            font-family: "Signika", sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            margin-bottom: 1em;
+        }
+
+        .ark-form-section p,
+        .ark-form-section li {
+            color: #c0c2c4;
+            line-height: 1.7;
+        }
+
+        .ark-form-section ul {
+            margin: .5em 0 0 1.5em;
+            list-style: disc;
+        }
+
+        .ark-form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.25em;
+        }
+
+        .ark-form-field {
+            margin-bottom: 1.15em;
+        }
+
+        .ark-form-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .ark-form-field label,
+        .ark-form-label {
+            display: block;
+            color: #fff;
+            font-family: "Signika", sans-serif;
+            font-size: 1em;
+            font-weight: 700;
+            margin-bottom: .45em;
+        }
+
+        .ark-form-required {
+            color: #d98f8f;
+        }
+
+        .ark-form-field input,
+        .ark-form-field select,
+        .ark-form-field textarea {
+            width: 100%;
+            border: 1px solid rgba(255,255,255,.22);
+            border-radius: 4px;
+            background: rgba(255,255,255,.075);
+            color: #fff;
+            padding: .75em .9em;
+            font-family: "Signika", sans-serif;
+            font-size: 13pt;
+            outline: none;
+        }
+
+        .ark-form-field input::placeholder,
+        .ark-form-field textarea::placeholder {
+            color: #9da4a9;
+        }
+
+        .ark-form-field input:focus,
+        .ark-form-field select:focus,
+        .ark-form-field textarea:focus {
+            border-color: #637B88;
+            box-shadow: 0 0 0 2px rgba(99,123,136,.18);
+        }
+
+        .ark-form-field textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .ark-form-field select option {
+            background: #020B13;
+            color: #fff;
+        }
+
+        .ark-choice-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .8em 1.5em;
+            margin: .5em 0 1em;
+        }
+
+        .ark-choice {
+            display: inline-flex;
+            align-items: center;
+            gap: .5em;
+            color: #c0c2c4;
+            cursor: pointer;
+        }
+
+        .ark-choice input {
+            accent-color: #637B88;
+        }
+
+        .ark-note {
+            padding: 1em 1.15em;
+            margin-top: 1em;
+            border-left: 3px solid #637B88;
+            background: rgba(255,255,255,.04);
+        }
+
+        .ark-note p {
+            margin: 0;
+            font-size: .95em;
+        }
+
+        .ark-signature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 2em;
+            margin-top: 1.5em;
+        }
+
+        .ark-agreement {
+            display: flex;
+            align-items: flex-start;
+            gap: .7em;
+            margin-top: 1.5em;
+            color: #c0c2c4;
+            line-height: 1.5;
+        }
+
+        .ark-agreement input {
+            margin-top: .25em;
+            accent-color: #637B88;
+        }
+
+        .ark-submit-row {
+            padding-top: 2em;
+            text-align: center;
+        }
+
+        .ark-submit {
+            background: #2A4857 !important;
+            color: #fff !important;
+            border: 2px solid #637B88 !important;
+            border-radius: 4px !important;
+            height: auto !important;
+            line-height: 1.4 !important;
+            padding: .85em 2em !important;
+            font-family: "Signika", sans-serif !important;
+            font-weight: 700 !important;
+            letter-spacing: .04em;
+        }
+
+        .ark-submit:hover {
+            background: #637B88 !important;
+        }
+
+        #ark-form-message {
+            display: block;
+            margin-top: 1em;
+            color: #c0c2c4;
+        }
+
+        @media screen and (max-width: 736px) {
+            #ark-services-page {
+                padding: 3.5em 0 2.5em;
+            }
+
+            .ark-form-card {
+                padding: 1.5em;
+            }
+
+            .ark-form-grid,
+            .ark-signature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ark-form-field.full {
+                grid-column: auto;
+            }
+
+            #ark-services-page .section-title h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <header id="header">
+            <h1 class="logo"><a href="index.html">DW</a></h1>
+            <a href="#menu">Menu</a>
+        </header>
+        <!-- Nav -->
+        <nav id="menu">
+            <ul class="links">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+                <li>
+                    <a href="interviews.html">Interviews</a>
+                </li>
+                <li>
+                    <a href="documents.html">Documents</a>
+                </li>
+                <li>
+                    <a href="call-to-action.html">Call To Action</a>
+                </li>
+                <li>
+                    <a class="nav-link scrollto" href="https://www.change.org/p/tell-the-corrupt-hardee-family-to-restore-viral-tiktoker-s-land-animal-rights?utm_medium=custom_url&utm_source=share_petition&recruited_by_id=7fc20550-120d-11ed-9292-6d03305d02ef">Petition</a>
+                </li>
+                <li>
+                    <a href="gallery.html">Gallery</a>
+                </li>
+                <li>
+                    <a href="ways-to-help.html">Ways To Help</a>
+                </li>
+                <li>
+                    <a href="hall-of-shame.html">Hall Of Shame</a>
+                </li>
+                <li>
+                    <a href="land-theft-form.html">Land Theft Form</a>
+                </li>
+                <li>
+                    <a href="volunteer.html">Volunteer Form</a>
+                </li>
+                <li>
+                    <a class="active" href="lawn-care-services.html">Lawn Care Services</a>
+                </li>
+                <li>
+                    <a href="faq.html">FAQ</a>
+                </li>
+                <li>
+                    <a class="nav-link scrollto" href="https://www.amazon.com/hz/wishlist/ls/3I34B7P1G9K1O?ref_=wl_share">Amazon Wishlist</a>
+                </li>
+                <li>
+                    <a class="nav-link scrollto" href="https://www.etsy.com/shop/helptheark/?etsrc=sdt">Shop</a>
+                </li>
+            </ul>
+        </nav>
+        <main id="main">
+            <section id="ark-services-page" class="services">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Lawn Care &amp; Handyman Services</h2>
+                        <p>
+                        Please complete the form below to request lawn care, grounds-maintenance,
+                        junk removal, pressure washing, or handyman services from The Way Dynamic
+                        Animal Therapy Encounters Inc. </p>
+                    </div>
+                    <form id="ark-service-signup" class="ark-form-card" method="post" action="https://formspree.io/f/xyegddkq" novalidate>
+                        <div class="ark-form-section">
+                            <h3>1. Services</h3>
+                            <p>Services may include:</p>
+                            <ul>
+                                <li>Lawn mowing, trimming and edging</li>
+                                <li>Blowing and cleanup of serviced areas</li>
+                                <li>Bush, shrub, and light vegetation maintenance</li>
+                                <li>Other lawn or grounds-maintenance services mutually agreed upon</li>
+                                <li>Junk removal</li>
+                                <li>Pressure washing</li>
+                                <li>Handyman services</li>
+                            </ul>
+                            <div class="ark-form-field" style="margin-top:1.25em;">
+                                <label for="service_details">Requested Services <span class="ark-form-required">*</span>
+                                </label>
+                                <textarea id="service_details" name="service_details" required placeholder="Tell us what work you need completed."></textarea>
+                            </div>
+                        </div>
+                        <div class="ark-form-section">
+                            <h3>2. Service Price</h3>
+                            <div class="ark-form-grid">
+                                <div class="ark-form-field">
+                                    <label for="service_price">Agreed Service Price ($) <span class="ark-form-required">*</span>
+                                    </label>
+                                    <input id="service_price" name="service_price" type="number" min="0" step="0.01" required>
+                                </div>
+                                <div class="ark-form-field">
+                                    <label for="price_basis">Price Basis</label>
+                                    <select id="price_basis" name="price_basis">
+                                        <option value="per_service_visit">Per service / visit</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="ark-note">
+                                <p>Additional services or work outside the agreed scope must be approved by the Company before the additional work is performed.</p>
+                            </div>
+                        </div>
+                        <div class="ark-form-section">
+                            <h3>3. Service Term &amp; Commitment</h3>
+                            <div class="ark-form-grid">
+                                <div class="ark-form-field">
+                                    <label for="start_date">Start Date <span class="ark-form-required">*</span>
+                                    </label>
+                                    <input id="start_date" name="start_date" type="date" required>
+                                </div>
+                                <div class="ark-form-field">
+                                    <label for="end_date">End Date</label>
+                                    <input id="end_date" name="end_date" type="date">
+                                </div>
+                            </div>
+                            <div class="ark-form-field">
+                                <span class="ark-form-label">Service Type <span class="ark-form-required">*</span></span>
+                                <div class="ark-choice-row">
+                                    <label class="ark-choice">
+                                        <input type="radio" name="service_type" value="one_time" required> One-Time Service
+                                    </label>
+                                    <label class="ark-choice">
+                                        <input type="radio" name="service_type" value="long_term"> Long-Term Commitment
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="ark-note">
+                                <p>One-time service is requested for a single scheduled visit. Long-term commitment is for recurring lawn care services beginning on the Start Date and continuing through the End Date stated above.</p>
+                            </div>
+                            <div class="ark-form-field" style="margin-top:1.25em;">
+                                <span class="ark-form-label">Service Frequency (if long-term)</span>
+                                <div class="ark-choice-row">
+                                    <label class="ark-choice">
+                                        <input type="radio" name="frequency" value="weekly"> Weekly
+                                    </label>
+                                    <label class="ark-choice">
+                                        <input type="radio" name="frequency" value="biweekly"> Biweekly
+                                    </label>
+                                    <label class="ark-choice">
+                                        <input type="radio" name="frequency" value="monthly"> Monthly
+                                    </label>
+                                    <label class="ark-choice">
+                                        <input type="radio" name="frequency" value="other"> Other
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="ark-form-field">
+                                <label for="frequency_other">Other Frequency</label>
+                                <input id="frequency_other" name="frequency_other" type="text">
+                            </div>
+                        </div>
+                        <div class="ark-form-section">
+                            <h3>4. Payment Terms</h3>
+                            <p>Payment is due within one (1) hour of completion of each scheduled service unless otherwise agreed upon in writing by both parties.</p>
+                            <div class="ark-note">
+                                <p>If payment is not received within the one-hour payment period, a $25.00 late-payment penalty will be assessed for each calendar day that the payment remains outstanding, beginning on the day following the completed service.</p>
+                            </div>
+                        </div>
+                        <div class="ark-form-section">
+                            <h3>5. Quality of Service</h3>
+                            <p>The Way Dynamic Animal Therapy Encounters Inc. agrees to perform all services in a professional, timely, and workmanlike manner. Reasonable efforts will be made to protect the Client’s property, landscaping, structures, animals, equipment, and other items located on the premises while performing services.</p>
+                        </div>
+                        <div class="ark-form-section">
+                            <h3>6. Scheduling</h3>
+                            <p>Services shall be performed according to a schedule mutually agreed upon by the Client and The Way Dynamic Animal Therapy Encounters Inc. Any changes to the scheduled service should be communicated as soon as reasonably possible.</p>
+                            <div class="ark-form-field" style="margin-top:1.25em;">
+                                <label for="schedule_notes">Scheduling Notes</label>
+                                <textarea id="schedule_notes" name="schedule_notes" placeholder="Preferred days, access instructions, or other scheduling information."></textarea>
+                            </div>
+                        </div>
+                        <div class="ark-form-section">
+                            <h3>7. Termination</h3>
+                            <p>Either party may terminate this Agreement at any time by providing reasonable notice to the other party. Any completed services and applicable charges shall remain due and payable upon termination.</p>
+                        </div>
+                        <div class="ark-form-section">
+                            <h3>8. Entire Agreement</h3>
+                            <p>This Agreement represents the understanding between the parties regarding the lawn care services described herein. Any changes or additional terms should be agreed upon in writing by both parties.</p>
+                        </div>
+                        <div class="ark-form-section">
+                            <h3>9. Client Information &amp; Acknowledgment</h3>
+                            <div class="ark-form-grid">
+                                <div class="ark-form-field">
+                                    <label for="client_name">Name / Business Name <span class="ark-form-required">*</span>
+                                    </label>
+                                    <input id="client_name" name="client_name" type="text" required>
+                                </div>
+                                <div class="ark-form-field">
+                                    <label for="client_phone">Phone <span class="ark-form-required">*</span>
+                                    </label>
+                                    <input id="client_phone" name="client_phone" type="tel" required>
+                                </div>
+                                <div class="ark-form-field">
+                                    <label for="client_email">Email <span class="ark-form-required">*</span>
+                                    </label>
+                                    <input id="client_email" name="client_email" type="email" required>
+                                </div>
+                                <div class="ark-form-field">
+                                    <label for="service_address">Service Address</label>
+                                    <input id="service_address" name="service_address" type="text">
+                                </div>
+                            </div>
+                            <p style="margin-top:1em;"><strong>By signing below, both parties acknowledge that they have read, understand, and agree to the terms and conditions of this Lawn Care Services Agreement.</strong></p>
+                            <div class="ark-signature-grid">
+                                <div>
+                                    <h4>The Way Dynamic Animal Therapy Encounters Inc.</h4>
+                                    <div class="ark-form-field">
+                                        <label for="authorized_name">Authorized Representative</label>
+                                        <input id="authorized_name" name="authorized_name" type="text">
+                                    </div>
+                                    <div class="ark-form-field">
+                                        <label for="authorized_title">Name / Title</label>
+                                        <input id="authorized_title" name="authorized_title" type="text">
+                                    </div>
+                                    <div class="ark-form-field">
+                                        <label for="company_signature">Signature</label>
+                                        <input id="company_signature" name="company_signature" type="text" placeholder="Type full name as electronic signature">
+                                    </div>
+                                    <div class="ark-form-field">
+                                        <label for="company_date">Date</label>
+                                        <input id="company_date" name="company_date" type="date">
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4>Lawn Care Service Client</h4>
+                                    <div class="ark-form-field">
+                                        <label for="client_signature">Signature <span class="ark-form-required">*</span>
+                                        </label>
+                                        <input id="client_signature" name="client_signature" type="text" placeholder="Type full name as electronic signature" required>
+                                    </div>
+                                    <div class="ark-form-field">
+                                        <label for="client_signature_date">Date <span class="ark-form-required">*</span>
+                                        </label>
+                                        <input id="client_signature_date" name="client_signature_date" type="date" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="ark-agreement">
+                                <input type="checkbox" name="agreement_acknowledged" required>
+                                <span>I acknowledge that I have read, understand, and agree to the terms and conditions of this Lawn Care Services Agreement. <span class="ark-form-required">*</span></span>
+                            </label>
+                        </div>
+                        <div class="ark-submit-row">
+                            <button class="ark-submit" type="submit">Submit Service Request</button>
+                            <span id="ark-form-message" aria-live="polite"></span>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <footer id="footer">
+                <div class="inner">
+                    <div class="flex flex-3"></div>
+                </div>
+                <div class="copyright">
+                    <ul class="icons">
+                        <li>
+                            <a href="https://twitter.com/derrick1280?s=11" class="icon fa-twitter"><span class="label">Twitter</span></a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/derrick.williamson.182?mibextid=tzlV2A" class="icon fa-facebook"><span class="label">Facebook</span></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/derrickwilliamson0007/" class="icon fa-instagram"><span class="label">Instagram</span></a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/@derrickwilliamson8286" class="icon fa-youtube"><span class="label">Youtube</span></a>
+                        </li>
+                        <li>
+                            <a href="https://www.tiktok.com/t/ZPRvxMk9D/"><div class="icon">
+                                    <img src="images/tik-tok.png" width="20" height="20" alt="">
+                                </div></a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+        </main>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script>
+    (function () {
+        var form = document.getElementById("ark-service-signup");
+        var message = document.getElementById("ark-form-message");
+
+        form.addEventListener("submit", function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                message.textContent = "Please complete the required fields.";
+                form.reportValidity();
+                return;
+            }
+
+            /*
+             * No submission endpoint is assumed here.
+             * Connect the form action to the site's existing form handler,
+             * Formspree/WordPress handler, or other backend before publishing.
+             */
+            if (!form.getAttribute("action")) {
+                event.preventDefault();
+                message.textContent = "Thank you! Your service request has been submitted successfully. We will contact you shortly";
+            }
+        });
+    }());
+    </script>
+    </body>
+</html>
